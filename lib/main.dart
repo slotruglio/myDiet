@@ -32,8 +32,20 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: const ColorScheme(
+          primary: Color(0xFFFFC107),
+          secondary: Color(0xFFFFC107),
+          surface: Color(0xFFFFC107),
+          background: Color(0xFFFFC107),
+          error: Color(0xFFFFC107),
+          onPrimary: Color(0xFFFFC107),
+          onSecondary: Color.fromARGB(255, 4, 0, 3),
+          onSurface: Color(0xFFFFC107),
+          onBackground: Color(0xFFFFC107),
+          onError: Color(0xFFFFC107),
+          brightness: Brightness.dark,
+        ),
       ),
       home: const MyHomePage(title: 'myDiet'),
     );
