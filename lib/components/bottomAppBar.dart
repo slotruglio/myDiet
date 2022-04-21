@@ -25,7 +25,7 @@ class CustomBottomAppBar extends StatelessWidget {
           children: [
             IconButton(
               icon: const Icon(Icons.calendar_month),
-              color: isSport? theme.colorScheme.onPrimary : theme.colorScheme.onSecondary,
+              color: !isSport? theme.colorScheme.onPrimary : theme.colorScheme.onSecondary,
               onPressed: onNormalPressed,
               tooltip: 'Normal Day',
             ),

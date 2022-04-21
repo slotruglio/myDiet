@@ -1,5 +1,6 @@
 import 'package:diet/components/bottomAppBar.dart';
 import 'package:diet/components/day.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,17 +16,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'myDiet App',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        bottomAppBarColor: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: const ColorScheme(
+          primary: Color(0xFFFFC107),
+          secondary: Color(0xFFFFC107),
+          surface: Color(0xFFFFC107),
+          background: Color(0xFFFFC107),
+          error: Color(0xFFFFC107),
+          onPrimary: Color(0xFFFFC107),
+          onSecondary: Color.fromARGB(255, 4, 0, 3),
+          onSurface: Color(0xFFFFC107),
+          onBackground: Color(0xFFFFC107),
+          onError: Color(0xFFFFC107),
+          brightness: Brightness.light,
+        ),
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(title: 'myDiet'),
     );
@@ -73,12 +81,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(_isSport ? 'Sport Day' : 'Normal Day'),
+      body: CustomScrollView(
+        slivers: [
+          CupertinoSliverNavigationBar(
+            largeTitle: Text(_isSport ? 'Sport Day' : 'Normal Day'),
+          ),
+          SliverList(delegate: SliverChildListDelegate([DayDiet(isSport: _isSport)]))
+        ],
       ),
-      body: DayDiet(isSport: _isSport),
       bottomNavigationBar: CustomBottomAppBar(
         isSport: _isSport,
         onSportPressed: _setSportDay,
