@@ -27,7 +27,7 @@ List<Meal> generateMeals(bool isSport) {
           'Uova di gallina - albume': '150',
           'Tonno in salamoia - sgocciolato':'50',
           'Salmone affumicato': '50',
-          'Proteine isolate': '50'
+          'Proteine isolate': '20'
         },
         {
           'Fiocchi d\'avena': isSport?'40':'30',
@@ -53,7 +53,7 @@ List<Meal> generateMeals(bool isSport) {
           'Uova di gallina - albume': '150',
           'Tonno in salamoia - sgocciolato':'50',
           'Salmone affumicato': '50',
-          'Proteine isolate': '50'
+          'Proteine isolate': '20'
         },
         {
           'Fiocchi d\'avena': '40',
@@ -70,6 +70,7 @@ List<Meal> generateMeals(bool isSport) {
           'Mandorle secche':'10',
           'Nocciole secche':'10',
           'Anacardi':'10',
+          'Burro di arachidi':'10',
         },
         {
           'Mela':'100',
@@ -146,6 +147,7 @@ List<Meal> generateMeals(bool isSport) {
           'Mandorle secche':'10',
           'Nocciole secche':'10',
           'Anacardi':'10',
+          'Burro di arachidi':'10',
         },
         {
           'Mela':'100',
@@ -171,7 +173,7 @@ List<Meal> generateMeals(bool isSport) {
           'Uova di gallina - albume': '150',
           'Tonno in salamoia - sgocciolato':'50',
           'Salmone affumicato': '50',
-          'Proteine isolate': '50'
+          'Proteine isolate': '20'
         },
         {
           'Mela':'100',
