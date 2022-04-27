@@ -107,7 +107,6 @@ class _MyHomePageState extends State<MyHomePage> {
         isSport: _isSport,
         onSportPressed: _setSportDay,
         onNormalPressed: _setNormalDay,
-        theme: Theme.of(context),
       ),// This trailing comma makes auto-formatting nicer for build methods.
       floatingActionButton: 
             FloatingActionButton(onPressed: () {

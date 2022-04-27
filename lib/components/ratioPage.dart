@@ -17,8 +17,9 @@ class _RatioPageState extends State<RatioPage> {
   Widget build(BuildContext context) {
     Map<String, num> _ratio = getRatio(dropdownValue, quantityValue.toInt());
     return CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('Ratio'),
+        navigationBar: CupertinoNavigationBar(
+          backgroundColor: Theme.of(context).colorScheme.onSecondary == const Color.fromARGB(255, 4, 0, 3) ? Colors.white : Color.fromARGB(255, 30, 30, 30),
+          middle: Text('Ratio', style: TextStyle(color: Theme.of(context).colorScheme.onSecondary)),
         ),
         child: Material(
           child: ListView(
@@ -29,10 +30,10 @@ class _RatioPageState extends State<RatioPage> {
                 icon: const Icon(Icons.arrow_downward),
                 iconSize: 24,
                 elevation: 16,
-                style: const TextStyle(color: Colors.deepPurple),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                 underline: Container(
                   height: 2,
-                  color: Colors.deepPurpleAccent,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 onChanged: (String? newValue) {
                   setState(() {
