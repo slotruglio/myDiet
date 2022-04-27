@@ -1,5 +1,7 @@
 import 'package:diet/components/bottomAppBar.dart';
 import 'package:diet/components/day.dart';
+import 'package:diet/components/ratioPage.dart';
+import 'package:diet/routes/route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
           background: Color(0xFFFFC107),
           error: Color(0xFFFFC107),
           onPrimary: Color(0xFFFFC107),
-          onSecondary: Color.fromARGB(255, 4, 0, 3),
+          onSecondary: Color.fromARGB(255, 217, 217, 217),
           onSurface: Color(0xFFFFC107),
           onBackground: Color(0xFFFFC107),
           onError: Color(0xFFFFC107),
@@ -96,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
-            largeTitle: Text(_isSport ? 'Sport Day' : 'Normal Day'),
+            largeTitle: Text(_isSport ? 'Sport Day' : 'Normal Day', style: TextStyle(color: Theme.of(context).colorScheme.onSecondary)),
           ),
           SliverList(delegate: SliverChildListDelegate([DayDiet(isSport: _isSport)]))
         ],
@@ -108,7 +110,9 @@ class _MyHomePageState extends State<MyHomePage> {
         theme: Theme.of(context),
       ),// This trailing comma makes auto-formatting nicer for build methods.
       floatingActionButton: 
-            FloatingActionButton(onPressed: () {}, child: const Icon(Icons.bar_chart)),
+            FloatingActionButton(onPressed: () {
+              Navigator.of(context).push(ratioRoute());
+            }, child: const Icon(Icons.bar_chart)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

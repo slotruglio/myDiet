@@ -107,11 +107,12 @@ List<Meal> generateMeals(bool isSport) {
           'Riso': isSport?'75':'65',
           'Riso integrale': isSport?'75':'65',
           'Riso basmati': isSport?'70':'60',
-          'Riso basmati integrale': isSport?'40':'60',
+          'Riso basmati integrale': isSport?'70':'60',
           'Patate': isSport?'290':'250',
           'Farro': isSport?'75':'65',
           'Orzo pelato': isSport?'80':'70',
           'Pasta con legumi': isSport?'50':'40',
+          'Pane di grano duro': isSport?'100':'85',
         },
         {
           'Pollo - petto':'150',
@@ -207,11 +208,12 @@ List<Meal> generateMeals(bool isSport) {
           'Riso': isSport?'75':'65',
           'Riso integrale': isSport?'75':'65',
           'Riso basmati': isSport?'70':'60',
-          'Riso basmati integrale': isSport?'40':'60',
+          'Riso basmati integrale': isSport?'70':'60',
           'Patate': isSport?'290':'250',
           'Farro': isSport?'75':'65',
           'Orzo pelato': isSport?'80':'70',
           'Pasta con legumi': isSport?'50':'40',
+          'Pane di grano duro': isSport?'100':'85',
         },
         {
           'Pollo - petto':'200',
@@ -236,4 +238,66 @@ List<Meal> generateMeals(bool isSport) {
       ]
     ),
   ];
+}
+
+List<String> getMacros() {
+  return [
+    'Carboidrati',
+    'Proteine',
+    'Fibre',
+    'Grassi',
+    'Frutta'
+  ];
+}
+
+List<String> getCarbo() {
+  return {
+    'Pasta di Semola',
+    'Pasta di Semola Integrale',
+    'Riso',
+    'Riso integrale',
+    'Riso basmati',
+    'Riso basmati integrale',
+    'Patate',
+    'Farro',
+    'Orzo pelato',
+    'Pasta con legumi',
+    'Pane di grano duro',
+    'Fiocchi d\'avena',
+    'Farina d\'avena',
+    'Gallette di riso',
+    'Fette Wasa integrali',
+  }.toList();
+}
+
+Map<String, num> getRatio(String ingredient, int quantity) {
+  Map<String, num> breakfast = {
+    'Fiocchi d\'avena': 40,
+    'Pane di grano duro': 60,
+    'Farina d\'avena': 40,
+    'Gallette di riso': 40,
+    'Fette Wasa integrali': 40
+  };
+  Map<String, int> lunch = {
+    'Pasta di Semola': 70,
+    'Pasta di Semola Integrale': 75,
+    'Riso': 75,
+    'Riso integrale': 75,
+    'Riso basmati': 70,
+    'Riso basmati integrale': 70,
+    'Patate': 290,
+    'Farro': 75,
+    'Orzo pelato': 80,
+    'Pasta con legumi': 50,
+    'Pane di grano duro': 100,
+  };
+
+  String common = breakfast.keys.toSet().intersection(lunch.keys.toSet()).toList()[0];
+  bool _isInLunch = lunch.containsKey(ingredient);
+  
+  num ingredientValue = _isInLunch ? lunch[ingredient]!/lunch[common]! : breakfast[ingredient]!/breakfast[common]!;
+  
+  Map<String, num> ratio = breakfast.map((key, value) => MapEntry(key,quantity*value/(breakfast[common]!*ingredientValue)));
+  ratio.addAll(lunch.map((key, value) => MapEntry(key,quantity*value/(lunch[common]!*ingredientValue))));
+  return ratio;
 }
