@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:diet/components/Meal.dart';
+import 'meal.dart';
 
 class RatioPage extends StatefulWidget {
   const RatioPage({Key? key}) : super(key: key);

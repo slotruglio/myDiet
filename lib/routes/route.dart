@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:diet/components/ratioPage.dart';
+import '../components/ratioPage.dart';
 
 Route ratioRoute() {
   return PageRouteBuilder(

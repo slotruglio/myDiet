@@ -1,7 +1,6 @@
-import 'package:diet/components/bottomAppBar.dart';
-import 'package:diet/components/day.dart';
-import 'package:diet/components/ratioPage.dart';
-import 'package:diet/routes/route.dart';
+import './components/bottomAppBar.dart';
+import './components/day.dart';
+import './routes/route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
